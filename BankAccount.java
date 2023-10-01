@@ -1,6 +1,6 @@
 package com.java.shopping;
 
-abstract class Acount
+abstract class Acount 
 {
 	long   Acc_no;
 	String Owner_name;
@@ -13,10 +13,9 @@ abstract class Acount
 		this.Owner_name = Owner_name;	
 	}
 	
-	public abstract void deposit(double Amt);
+	public abstract void deposit(double Amt);  // Method deceleration without method definition is known as "Abstract class" decleared as " Abstract keyword "
 	public abstract void withdraw(double Amt);
 	public abstract void checkBalance();
-	
 	public abstract void displayDetails();
 	
 }
@@ -44,8 +43,8 @@ class Savings extends Acount
 			}
 	}
 	
-	@Override             // --> Modified the methods from parent class is known as "Method Overriding"
-	public void deposit(double Amt)
+	@Override             // --> Modified the methods from parent class is known as "Method Overriding".
+	public void deposit(double Amt)                                   //* If both Method deceleration and method definition is known as "Concrete Method"
 	{
 		Balance = Balance + Amt;
 		System.out.println("Deposited Amount : "+Amt);
@@ -57,13 +56,13 @@ class Savings extends Acount
 		Balance = Balance - Amt;
 		System.out.println("Withdraw Amount : "+Amt);
 	}
+	
 	@Override             // --> Modified the methods from parent class is known as "Method Overriding"
 	public void checkBalance() 
 	{
 		
 		System.out.println("Check Balance "+Balance);
 	}
-	
 	
 	@Override             // --> Modified the methods from parent class is known as "Method Overriding"
 	public void displayDetails() 
@@ -74,8 +73,6 @@ class Savings extends Acount
 		System.out.println("Name :"+Owner_name);
 		System.out.println("Account No : "+Acc_no);
 	}
-	
-	
 }
 
 //CURRENT ACCOUNT...
@@ -132,21 +129,18 @@ public class BankAccount
 	public static void main(String[] args) 
 	{
 		// Current Account class object
-				Current c = new Current(7339110990l, "Madesh");
-						c.displayDetails();
-				        c.deposit(600.0);
-				        c.withdraw(150.0); 
-				        c.checkBalance();
+		      Current c = new Current(7339110990l, "Madesh");
+			      c.displayDetails();
+			      c.deposit(600.0);
+			      c.withdraw(150.0); 
+			      c.checkBalance();
 				        
-        // Savings Account class object
-        Savings s = new Savings(0.05, 6448979025l, "Murugan");
-		        s.displayDetails();
+              // Savings Account class object
+		    Savings s = new Savings(0.05, 6448979025l, "Murugan");
+			    s.displayDetails();
 			    s.deposit(600.0);
 			    s.withdraw(100.0);
 			    s.calculate_roi();
-			    s.checkBalance();
-				        
-
-				        
+			    s.checkBalance();		        
 	}
 }
